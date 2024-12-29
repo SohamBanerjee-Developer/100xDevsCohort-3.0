@@ -3,8 +3,8 @@ import { LAMPORTS_PER_SOL } from '@solana/web3.js'
 import React from 'react'
 
 function ShowBalance() {
-    const {connection} = useConnection()
-    const wallet = useWallet()
+    const {connection} = useConnection()//custom useContext hook
+    const wallet = useWallet()//custom useContext hook
     async function getBalance() {
         const balance = await connection.getBalance(wallet.publicKey)
         document.getElementById('balance').innerHTML = balance / LAMPORTS_PER_SOL

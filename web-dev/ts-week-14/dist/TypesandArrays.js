@@ -4,7 +4,7 @@ const soham = {
     age: 19,
     ip: 5463
 };
-function isLegal(name) {
+let isLegal = (name) => {
     for (let i = 0; i < name.length; i++) {
         if (name[i].age >= 18) {
             return true;
@@ -13,7 +13,7 @@ function isLegal(name) {
             return false;
         }
     }
-}
+};
 let user1 = {
     firstName: "soham",
     lastName: "banerjee",
@@ -32,3 +32,4 @@ if (legal) {
 else {
     console.log("ypu can't");
 }
+// you can acheive intersection using interfaces using extends

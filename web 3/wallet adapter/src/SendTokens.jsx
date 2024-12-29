@@ -3,18 +3,18 @@ import { LAMPORTS_PER_SOL, PublicKey, SystemProgram, Transaction } from '@solana
 import React from 'react'
 
 function SendTokens() {
-    const {connection} = useConnection()
-    const wallet = useWallet()
+    const {connection} = useConnection()//custom useContext hook
+    const wallet = useWallet()//custom useContext hook
     async function sendTransaction() {
         const amount = document.getElementById('Amount').value
         const to = document.getElementById('to').value
         const transaction = new Transaction()
-        transaction.add(SystemProgram.transfer({
+        transaction.add(SystemProgram.transfer({// creating atransaction a transaction with asingle instruction
             fromPubkey: wallet.publicKey,
             toPubkey: new PublicKey(to),
             lamports: amount * LAMPORTS_PER_SOL
         }))
-        await wallet.sendTransaction(transaction, connection)
+        await wallet.sendTransaction(transaction, connection)//sends to the wallet then we confirm then wallet does all the other thing like signing the transaction sending it to blockchain
         alert("sent " + amount + " from " + wallet.publicKey + " to " + to)      
         
     }

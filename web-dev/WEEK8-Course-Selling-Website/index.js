@@ -18,6 +18,8 @@ app.use("/api/v1/admin", adminRouter);
 
 async function main() {
   await mongoose.connect(process.env.MONGO_URL);
+  console.log(process.env.MONGO_URL);
+  
   app.listen(3000);
   console.log("connected");
 }

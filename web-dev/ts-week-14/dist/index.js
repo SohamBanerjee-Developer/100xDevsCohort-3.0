@@ -29,7 +29,7 @@ function delayedCall(fn) {
 delayedCall(function () {
     console.log("hi there");
 });
-function (user) {
+function greet(user) {
     console.log("hello" + user.address.city);
 }
 let user = {

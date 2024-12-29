@@ -6,8 +6,15 @@ import { RecoilRoot, useRecoilValue, useSetRecoilState } from "recoil";
 import  {counter, isEven } from "./store/atom/atom";
 import React from 'react'
 
-function App() {
+// async function in JavaScript always returns a promise, even if you don't explicitly return a promise object; the function's return 
+// value will be implicitly wrapped in a promise by the language itself
+//so when we turn an component async it returns a promise which react doesn't renders and gives error 
 
+ function App() {
+  // const res = await setTimeout(()=>{
+  //   console.log("hello");
+    
+  // },10000)
   return (
     <RecoilRoot>
      {/* <Counter /> */}
@@ -35,6 +42,8 @@ const [counter, setCounter] = useState("")
 // const MemoizedCurrentCount = memo(CurrentCount)
 function CurrentCount() {
   const count = useRecoilValue(counter);  
+  console.log(count);
+  
   return <div>
     {count}
   </div>

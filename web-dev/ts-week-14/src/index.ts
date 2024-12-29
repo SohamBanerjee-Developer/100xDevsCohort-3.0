@@ -32,7 +32,7 @@ delayedCall(function() {
     console.log("hi there");
 })
 
-function(user: {
+function greet(user: {
     name: "soham",
     age:number,
     address :{

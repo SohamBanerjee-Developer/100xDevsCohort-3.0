@@ -12,7 +12,7 @@ function ContextAPI() {
 function CountContextProvider({ children }) {
     const [count, setCount] = useState(0);
   
-    return <CountContext.Provider value={{count, setCount}}>
+    return <CountContext.Provider value={{count, setCount}}>{/*this object containing the values is what stored in the CountContext */}
       {children}
     </CountContext.Provider> 
 }

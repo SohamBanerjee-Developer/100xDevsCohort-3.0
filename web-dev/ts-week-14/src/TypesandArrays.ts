@@ -3,7 +3,7 @@ interface User{
     age: number
 }
 interface admin{
-    name: string
+    name: String
     ip: number
 }
 type client = User & admin
@@ -17,7 +17,7 @@ interface USER{
     lastName: string
     age: number
 }
-function isLegal(name: USER[]): boolean{// array of type user
+let isLegal = (name: USER[]) =>{ // array of type user
     for(let i=0; i<name.length; i++){
         if(name[i].age>= 18){
             return true
@@ -25,6 +25,7 @@ function isLegal(name: USER[]): boolean{// array of type user
             return false
         }
     }
+   
 }
 let user1: USER ={
     firstName: "soham",

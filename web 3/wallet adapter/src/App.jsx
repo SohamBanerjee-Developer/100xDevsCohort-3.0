@@ -1,39 +1,50 @@
-import React, { FC, useMemo } from 'react';
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
-import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
-import { UnsafeBurnerWalletAdapter } from '@solana/wallet-adapter-wallets';
+import React, { FC, useMemo } from "react";
 import {
-    WalletModalProvider,
-    WalletDisconnectButton,
-    WalletMultiButton
-} from '@solana/wallet-adapter-react-ui';
-import { clusterApiUrl } from '@solana/web3.js';
+  ConnectionProvider,
+  WalletProvider,
+} from "@solana/wallet-adapter-react";
+import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
+import { UnsafeBurnerWalletAdapter } from "@solana/wallet-adapter-wallets";
+import {
+  WalletModalProvider,
+  WalletDisconnectButton,
+  WalletMultiButton,
+} from "@solana/wallet-adapter-react-ui";
+import { clusterApiUrl } from "@solana/web3.js";
 
 // Default styles that can be overridden by your app
-import '@solana/wallet-adapter-react-ui/styles.css';
-import Airdrop from './Airdrop';
-import ShowBalance from './ShowBalance';
-import SendTokens from './SendTokens';
-import { SignMessage } from './SignMessage';
+import "@solana/wallet-adapter-react-ui/styles.css";
+import Airdrop from "./Airdrop";
+import ShowBalance from "./ShowBalance";
+import SendTokens from "./SendTokens";
+import { SignMessage } from "./SignMessage";
 
 function App() {
-
-
   return (
-    <ConnectionProvider endpoint={"https://solana-devnet.g.alchemy.com/v2/Q2sMxfLhwZtyozPE8bZ9pDJ4KcLTbTvn"}>
-            <WalletProvider wallets={[]} autoConnect>
-                <WalletModalProvider>{/*providing to our dapp*/}
-                  <WalletMultiButton></WalletMultiButton>
-                  <WalletDisconnectButton></WalletDisconnectButton>
-      <div>hi there</div>
-      <Airdrop/>
-      <ShowBalance/>
-      <SendTokens/>
-      <SignMessage/>
-                </WalletModalProvider>
-            </WalletProvider>
-        </ConnectionProvider>
-  )
+    <>
+      {/* the contexts for these custom providers(componets inside which the actual provider exists) is ofcoures in the library
+    from which these are imported and the code of library exists in the node modules */}
+      <ConnectionProvider
+        endpoint={
+          "https://api.devnet.solana.com"
+        }
+      >{/*provides the object that was passed to the ConnectionContext.Provider in node_modules\@solana\wallet-adapter-react\src\ConnectionProvider.tsx */}
+        <WalletProvider wallets={[]} autoConnect>{/*provides the object that was passed to the WalletContext.Provider in node_modules\@solana\wallet-adapter-react\src\WalletProvider.tsx */}
+          {/*wallets is now an empty array you need to pass those wallets which doesn't follow the standard */}
+          <WalletModalProvider>
+            {/*providing to our dapp*/}
+            <WalletMultiButton></WalletMultiButton>
+            <WalletDisconnectButton></WalletDisconnectButton>
+            <div>hi there</div>
+            <Airdrop />
+            <ShowBalance />
+            <SendTokens />
+            <SignMessage />
+          </WalletModalProvider>
+        </WalletProvider>
+      </ConnectionProvider>
+    </>
+  );
 }
 
-export default App
+export default App;

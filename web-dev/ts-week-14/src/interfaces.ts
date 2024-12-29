@@ -7,12 +7,13 @@ interface Address{
 interface user{// interfaces are used to define custom type u can use it to give type object
 	firstname: "harkirat"|"number";
 	age: number;
-	address?: Address
+	address: Address
 }
 const User: user = {
 	firstname: "harkirat",
 	age: 21,
 	address: {
+		city: "kolkata",
 		country: "India",// you can restrictthe  type of any variable/objects or anything else to a pecific values
 		pincode: 4000000
 	}
@@ -85,4 +86,5 @@ class cat extends animal{
 let kitty = new cat("chuni")
 kitty.greet()
 kitty.bye()
+export {}
 //unlike interfaces abstract classes can have default/non abstract properties and method

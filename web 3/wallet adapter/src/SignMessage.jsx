@@ -16,7 +16,7 @@ export function SignMessage() {
         //signature is nothing but the encoded form of the message
         if (!ed25519.verify(signature, encodedMessage, publicKey.toBytes())) throw new Error('Message signature invalid!');//using the corresponding public key 
         //manually verifing whether it is signed by the private key 
-        alert('success', `Message signature: ${bs58.encode(signature)}`);
+        alert('success' + ` message signature: ${bs58.encode(signature)}`);
         console.log(`Message signature: ${bs58.encode(signature)}`);        
         console.log(signature);
         

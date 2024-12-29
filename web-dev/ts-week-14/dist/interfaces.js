@@ -1,8 +1,10 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const User = {
     firstname: "harkirat",
     age: 21,
     address: {
+        city: "kolkata",
         country: "India", // you can restrictthe  type of any variable/objects or anything else to a pecific values
         pincode: 4000000
     }
@@ -13,7 +15,9 @@ let person = {
     greet: function () {
         return "soham";
     },
+    asd: "asd"
 };
+let PERSON = person; //you can add extra properties
 class People {
     constructor() {
         this.name = "string";

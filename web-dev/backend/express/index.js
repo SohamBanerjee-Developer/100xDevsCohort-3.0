@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();// create an app instance of express
-app.use(express.json())// explained in week 5.2 00:46:30 -> parsing the data in json->specifying which type of data is being send through body
+// explained in week 5.2 00:46:30 -> parsing the data in json->specifying which type of data is being send through body
+
+app.use(express.json())
+
  let users = [
   {
     userId: 1,
@@ -65,5 +68,4 @@ app.get("/", function (req, res) {
   res.json(Users); // this code will execute if there is a get request on the / route
   //res.send("<b>hello</b>")// you can send res.send only once
 });
-
 app.listen(3000);
