@@ -9,12 +9,12 @@ function SendTokens() {
         const amount = document.getElementById('Amount').value
         const to = document.getElementById('to').value
         const transaction = new Transaction()
-        transaction.add(SystemProgram.transfer({// creating atransaction a transaction with asingle instruction
+        transaction.add(SystemProgram.transfer({// creating a transaction with a single instruction
             fromPubkey: wallet.publicKey,
             toPubkey: new PublicKey(to),
             lamports: amount * LAMPORTS_PER_SOL
         }))
-        await wallet.sendTransaction(transaction, connection)//sends to the wallet then we confirm then wallet does all the other thing like signing the transaction sending it to blockchain
+        await wallet.sendTransaction(transaction, connection)//sends to the wallet then we confirm the transaction then wallet does all the other thing like signing the transaction sending it to blockchain
         alert("sent " + amount + " from " + wallet.publicKey + " to " + to)      
         
     }

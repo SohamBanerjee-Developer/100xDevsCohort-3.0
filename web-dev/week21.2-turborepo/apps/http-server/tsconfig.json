@@ -1,0 +1,9 @@
+{
+  "extends": "@repo/typescript-config/backends.json", // syntax for importing the backends.json from the shared package typescript-config
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+}//you can have cooments in tsconfig.json file but not in backends.json or package.json or... others.json
+// as the actual tsconfig is defined over typescript-config package, it finds ./src and ./dist in that package 
+// that's why we got rid of them first time so we use compilerOptions to define them here

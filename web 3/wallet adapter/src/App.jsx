@@ -30,11 +30,11 @@ function App() {
         }
       >{/*provides the object that was passed to the ConnectionContext.Provider in node_modules\@solana\wallet-adapter-react\src\ConnectionProvider.tsx */}
         <WalletProvider wallets={[]} autoConnect>{/*provides the object that was passed to the WalletContext.Provider in node_modules\@solana\wallet-adapter-react\src\WalletProvider.tsx */}
-          {/*wallets is now an empty array you need to pass those wallets which doesn't follow the standard */}
+          {/*wallets is now an empty array you need to pass those wallets which doesn't follow the standard it can auto detect the wallets which follows the standard */}
           <WalletModalProvider>
             {/*providing to our dapp*/}
-            <WalletMultiButton></WalletMultiButton>
-            <WalletDisconnectButton></WalletDisconnectButton>
+            <WalletMultiButton></WalletMultiButton>{/* custom components that has the logic written somwehere which allows them to perform certain tasks with the help of the contexts that were provided to threm */}
+            <WalletDisconnectButton></WalletDisconnectButton>{/*custom components that has the logic written somwehere which allows them to perform certain tasks with the help of the contexts that were provided to threm*/}
             <div>hi there</div>
             <Airdrop />
             <ShowBalance />

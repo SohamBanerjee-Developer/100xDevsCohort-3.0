@@ -1,4 +1,4 @@
-import { ed25519 } from '@noble/curves/ed25519';
+import { ed25519 } from '@noble/curves/ed25519';//an implementetion of ed25519 curve for more insights go to google or npmjs
 import { useWallet } from '@solana/wallet-adapter-react';
 import bs58 from 'bs58';
 import React from 'react';
@@ -8,10 +8,10 @@ export function SignMessage() {
 
     async function onClick() {
         if (!publicKey) throw new Error('Wallet not connected!');
-        if (!signMessage) throw new Error('Wallet does not support message signing!');
+        if (!signMessage) throw new Error('Wallet does not support message signing!');//the logic that if !signMessage then the connected wallet doesn't support message signing,is written in the wallet-adapter-react-ui
         
         const message = document.getElementById("message").value;
-        const encodedMessage = new TextEncoder().encode(message);//converts the message in uint8array as the below function expects that
+        const encodedMessage = new TextEncoder().encode(message);//converts the message in uint8array as the below function expects that using utf8 encoding
         const signature = await signMessage(encodedMessage);//the wallet signs the message using my private key
         //signature is nothing but the encoded form of the message
         if (!ed25519.verify(signature, encodedMessage, publicKey.toBytes())) throw new Error('Message signature invalid!');//using the corresponding public key 

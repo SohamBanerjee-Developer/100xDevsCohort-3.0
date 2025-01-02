@@ -4,13 +4,13 @@ const { bs58 } = require("@project-serum/anchor/dist/cjs/utils/bytes")
 const { Connection, Keypair, VersionedTransaction } = require("@solana/web3.js")
 const { default: axios } = require('axios')
 
-const connection = new Connection("https://api.mainnet-beta.solana.com")// aconnection object with so much information about the network
+const connection = new Connection("https://api.mainnet-beta.solana.com")// if log the connextion variable then we get a connection object with so much information about the network
 const wallet = new Wallet(Keypair.fromSecretKey(bs58.decode(process.env.PRIVATE_KEY)))//bs58.decode converts base58 encoded string to bytes in buffer not uint8array
 // console.log( wallet, Keypair.fromSecretKey(bs58.decode(process.env.PRIVATE_KEY)))// to differnt keypair object with different property structure but same value
 
 async function main() {
     const balance = await connection.getBalance(wallet.publicKey)
-    console.log(balance)
+    // console.log(balance)//the balance of the wallet
     const response = await axios.get('https://quote-api.jup.ag/v6/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=100000000&slippageBps=50')
     const quoteResponse = response.data
     // console.log(quoteResponse)// quote response object with so much information
@@ -22,7 +22,8 @@ async function main() {
             })
         );
 
-        // console.log(swapTransaction)// transaction object for the corresponding swapping encoded in base64
+        console.log(swapTransaction)// transaction object for the corresponding swapping encoded in base64  
+        // note: it logs a string of base64 encoded transaction object
         const swapTransactionBuf = Buffer.from(swapTransaction, 'base64');//converts base64 encoded string to bytes in buffer
         var transaction = VersionedTransaction.deserialize(swapTransactionBuf);//deserialized bytes to a transaction object
         // console.log(transaction);//the transaction object

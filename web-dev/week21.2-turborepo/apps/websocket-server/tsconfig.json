@@ -1,0 +1,3 @@
+{
+  "extends": "@repo/typescript-config/backends.json", // syntax for importing the backends.json from the shared package typescript-config
+}//you can have cooments in tsconfig.json file but not in backends.json or package.json or... others.json

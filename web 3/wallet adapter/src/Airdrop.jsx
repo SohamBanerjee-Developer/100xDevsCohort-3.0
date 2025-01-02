@@ -3,14 +3,15 @@ import { LAMPORTS_PER_SOL } from '@solana/web3.js'
 import React from 'react'
 function Airdrop() {
     const wallet = useWallet()//custom useContext hook
-    const {connection} = useConnection()/*doing the same rpc calls in different ways as differnt libraries and cli's provide different customize paths */
+    const {connection} = useConnection()/*doing the same rpc calls in different ways as differnt libraries and cli's provide different customize ways */
     async function requestAirdrop(){
       const amount = document.getElementById("amount").value
       console.log(amount);  
       console.log(wallet.publicKey );
       console.log(connection);
       
-        await connection.requestAirdrop(wallet.publicKey, amount * LAMPORTS_PER_SOL)
+        await connection.requestAirdrop(wallet.publicKey, amount * LAMPORTS_PER_SOL)/*doing the same rpc calls in different ways as differnt libraries and cli's provide different customize ways */
+       // it will be requestng untill it gets back response
         alert('airdropped')
     }
   return (
