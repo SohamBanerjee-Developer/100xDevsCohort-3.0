@@ -1,4 +1,4 @@
-import { ed25519 } from '@noble/curves/ed25519';//an implementetion of ed25519 curve for more insights go to google or npmjs
+import { ed25519 } from '@noble/curves/ed25519';//an implementetion of ed25519 curve for more insights go to google or npmjs https://www.npmjs.com/package/@noble/curves
 import { useWallet } from '@solana/wallet-adapter-react';
 import bs58 from 'bs58';
 import React from 'react';

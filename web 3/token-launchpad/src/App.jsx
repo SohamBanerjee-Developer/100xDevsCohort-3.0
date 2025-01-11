@@ -9,10 +9,11 @@ import {
     WalletMultiButton
 } from '@solana/wallet-adapter-react-ui';
 import '@solana/wallet-adapter-react-ui/styles.css';
+import { MetaTokenLaunchpad } from './components/MetaTokenLaunchpad';
 
 function App() {
   const [count, setCount] = useState(0)
-
+// todo: create a liquidity pool for the token and creste token with metadata
   return (
         <>
         {/* the contexts for these custom providers(componets inside which the actual provider exists) is ofcoures in the library
@@ -29,7 +30,7 @@ function App() {
                 <WalletMultiButton />{/*custom components that has the logic written somwehere which allows them to perform certain tasks with the help of the contexts that were provided to threm*/}
                 <WalletDisconnectButton />{/*custom components that has the logic written somwehere which allows them to perform certain tasks with the help of the contexts that were provided to threm*/}
               </div>
-                <TokenLaunchpad></TokenLaunchpad>
+                <MetaTokenLaunchpad></MetaTokenLaunchpad>
             </WalletModalProvider>
         </WalletProvider>
     </ConnectionProvider>
