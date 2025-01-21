@@ -9,9 +9,11 @@
     "dev": "tsc -b && node dist/index.js"
   },
   "dependencies": {
-    "@repo/typescript-config": "*",
-    "@types/ws": "^8.5.13",
     "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "@types/ws": "^8.5.13"
   },
   "keywords": [],
   "author": "",

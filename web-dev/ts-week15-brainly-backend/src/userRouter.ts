@@ -12,7 +12,9 @@ userRouter.post("/signUp", async (req, res) => {
     username: z.string().min(3).max(10),
     password: z.string().min(4).max(20),
   });
-  const parsed = requiredBody.safeParse(req.body);
+  const parsed = requiredBody.safeParse(req.body);// you can add extra fields
+  //we use safeParse() over parse() bcoz it returns a object which contains data , error but doesn't return error like parse() which crashes the server if there's incorrect input
+  //parse() returns data or error  safeParse returns a object which has two keys { success: true; data: "tuna" } or { success: false; error: ZodError }
   if (!parsed.success) {
     res.status(411).json({
       message: "Error in inputs",
